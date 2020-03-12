@@ -1,0 +1,24 @@
+img{
+    margin-left: 30px;
+    right: 0px;
+    height: 150px;
+    width: 105px;
+}
+div {
+    position: relative;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+}
+span, a {
+    display: block;
+    font-size: 15px;
+    text-decoration: underline;
+}
+.deleteIcon{
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 1px;
+}

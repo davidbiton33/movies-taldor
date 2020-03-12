@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title">הוספת סרט חדש</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #f="ngForm" (ngSubmit)="addMovie(f.valid)">
+
+    <div class="form-group">
+      <label for="MovieName">שם הסרט</label>
+      <input name="name" [(ngModel)]="movie.name" (ngModelChange)="movieNamevalidation()" type="text"
+        class="form-control" id="MovieName" #name="ngModel" required>
+
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+          חובה למלא את שם הסרט
+        </div>
+      </div>
+
+      <div *ngIf="nameNotValid" class="alert alert-danger">
+        {{nameNotValid}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="MovieCategory">קטגוריה</label>
+      <select name="catgory" class="form-control" [(ngModel)]="movie.category" required>
+        <option *ngFor="let item of catgories">{{item}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="MovieImbdLink">קישור ל <a href="https://www.imdb.com/">imdb </a> </label>
+      <input name="imdbLink" [(ngModel)]="movie.imdbLink" (ngModelChange)="validation()" type="text"
+        class="form-control" id="MovieImbdLink" #link="ngModel" required>
+
+      <div *ngIf="link.invalid && (link.dirty || link.touched)" class="alert alert-danger">
+        <div *ngIf="link.errors.required">
+          חייב להכניס לינק
+        </div>
+      </div>
+      <div *ngIf="!linkNotValid" class="alert alert-danger">
+        רק לינקים לאתר imdb
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="MovieImg">כתובת תמונה</label>
+      <input name="imwg" [(ngModel)]="movie.img" type="url" class="form-control" id="MovieImg"
+        (ngModelChange)="validateImg()" #img="ngModel" required>
+      <div *ngIf="img.invalid && (img.dirty || img.touched)" class="alert alert-danger">
+        <div *ngIf="img.errors.required">
+          חייב להכניס לינק
+        </div>
+      </div>
+      <div *ngIf="!imgNotValid" class="alert alert-danger">
+        יש להכניס רק כתובת של תמונה
+      </div>
+    </div>
+    <button [disabled]="!f.valid" type="submit" class="btn btn-success"> הוסף סרט </button>
+  </form>
+  <span *ngIf="!f.valid "> יש למלא את כל השדות</span>
+  <span> {{msg}} </span>
+
+</div>
+<div class="modal-footer">
+
+  <button type="button" class="btn btn-warning" (click)="activeModal.close('Close click')">ביטול </button>
+</div>

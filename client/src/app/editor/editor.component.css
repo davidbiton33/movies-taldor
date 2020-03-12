@@ -1,0 +1,66 @@
+*{
+    text-align: center;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    background-color: lightgray;
+    height:100vh;
+}
+    
+main .category{
+    background-color: lightgreen;
+}
+aside{
+ grid-area: 1 / 5 / 6 / 6;
+ border-left: 2px solid black;
+ }
+
+aside div{
+    direction: rtl;
+    padding: 10px;
+    border-bottom: 1px solid black;
+
+}
+.editPanel {
+     grid-area: 1 / 1 / 6 / 5;
+ }
+
+.btnItem{
+    background-color: lightblue;
+}
+ .pointer{
+     cursor: pointer;
+ }
+
+ app-movie-item{
+     margin: 15px;
+ }
+
+ /* @media (max-width:350px){
+    .main aside {
+        float:right;
+        width:28%;
+    }
+}
+@media (min-width:350px) { /* notice I change min-width to max-width */
+    /* .main {
+        display:-webkit-flex;
+        display:flex;
+        -webkit-flex-direction:column;
+        flex-direction:column;
+    }
+    .main article {
+        -webkit-order:1;
+        order:1;
+    }
+    .main aside {
+        -webkit-order:2;
+        order:2;
+        float:initial;
+        width:initial;
+    }
+} */ 
