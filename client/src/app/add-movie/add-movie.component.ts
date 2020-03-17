@@ -94,7 +94,7 @@ export class AddMovieComponent implements OnInit {
       return;
 
     if (this.movie.name.length <= 30) {
-      var letters = /^[A-Za-z]+$/;
+      var letters = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
       if (this.movie.name.match(letters)) {
 
         //check this name not exist
