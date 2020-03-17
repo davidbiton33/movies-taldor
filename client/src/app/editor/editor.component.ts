@@ -47,7 +47,6 @@ export class EditorComponent implements OnInit {
   getCategoriesList() {
     this.DalService.getCategories().subscribe(data => {
       this.categories = [];
-      this.categories.push(data[0]);
       let flag = true;
 
       for (let i = 0; i < data.length; i++) {
